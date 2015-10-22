@@ -1,17 +1,4 @@
-﻿/*----------------------------------------------------------------
-    Copyright (C) 2015 Senparc
-    
-    文件名：Get.cs
-    文件功能描述：Get
-    
-    
-    创建标识：Senparc - 20150211
-    
-    修改标识：Senparc - 20150303
-    修改描述：整理接口
-----------------------------------------------------------------*/
-
-using DingTalk.SDK.Entities;
+﻿using DingTalk.SDK.Entities;
 using DingTalk.SDK.Exceptions;
 using System;
 using System.IO;

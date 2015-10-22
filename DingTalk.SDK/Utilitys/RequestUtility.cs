@@ -1,20 +1,4 @@
-﻿/*----------------------------------------------------------------
-    Copyright (C) 2015 Senparc
-    
-    文件名：RequestUtility.cs
-    文件功能描述：获取请求结果
-    
-    
-    创建标识：Senparc - 20150211
-    
-    修改标识：Senparc - 20150303
-    修改描述：整理接口
-    
-    修改标识：Senparc - 20150407
-    修改描述：使用Post方法获取字符串结果 修改表单处理方法
-----------------------------------------------------------------*/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
