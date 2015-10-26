@@ -13,8 +13,9 @@ namespace DingTalk.SDK
         /// </summary>
         public const int TIME_OUT = 10000;
 
-        public const string CORPID = "";
-        public const string CORPSECRET = "";
+        public const string CORPID = "ding81248001e4b0ec8f";
+        public const string CORPSECRET = "t5PsYVUpy8hutuyN0s9kbiPIxbSLY1VOuFYEReSfw6pCVlOryiFgXUjX4rZxi9Ov";
+
 
 
  
