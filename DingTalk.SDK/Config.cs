@@ -13,11 +13,11 @@ namespace DingTalk.SDK
         /// </summary>
         public const int TIME_OUT = 10000;
 
-        public const string CORPID = "";
-        public const string CORPSECRET = "";
+        public static readonly string CORPID = System.Configuration.ConfigurationManager.AppSettings["DD_CORPID"] ;
+        public static readonly string CORPSECRET = System.Configuration.ConfigurationManager.AppSettings["DD_CORPSECRET"] ;
 
 
 
- 
+
     }
 }
