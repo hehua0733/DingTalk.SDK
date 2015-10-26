@@ -70,7 +70,7 @@ namespace DingTalk.SDK.Entities.Tests
             Assert.IsNotNull(msg.oa.body.image);
             Assert.IsNotNull(msg.oa.body.file_count);
             Assert.IsNotNull(msg.oa.body.author);
-            Assert.AreEqual(msg.oa.body.form[0].Key, "姓名:");
+            Assert.AreEqual(msg.oa.body.form[0].key, "姓名:");
         }
     }
 }

@@ -48,7 +48,7 @@ namespace DingTalk.SDK.Entities
     public class Media
     {
         public string media_id { get; set; }
- 
+
     }
 
 
@@ -82,8 +82,6 @@ namespace DingTalk.SDK.Entities
     {
         public DDOAMessage() : base("oa")
         {
-            if (this.oa == null)
-                this.oa = new OA();
 
         }
 
@@ -92,11 +90,7 @@ namespace DingTalk.SDK.Entities
         public OA oa { get; set; }
         public class OA
         {
-            public OA()
-            {
-                body = new Body();
-                head = new Head();
-            }
+
             public Head head { get; set; }
             public Body body { get; set; }
             public class Head
@@ -115,10 +109,14 @@ namespace DingTalk.SDK.Entities
                 public string author { get; set; }
 
 
-                public KeyValuePair<string, string>[] form { get; set; }
+                public FormKeyValue[] form { get; set; }
                 public Rich rich { get; set; }
 
-
+                public class FormKeyValue 
+                { 
+                    public string key { get; set; }
+                    public string value { get; set; }
+                }
                 public class Rich
                 {
                     public string unit { get; set; }
@@ -130,6 +128,8 @@ namespace DingTalk.SDK.Entities
         }
 
     }
+
+
     #endregion
 
     #endregion
