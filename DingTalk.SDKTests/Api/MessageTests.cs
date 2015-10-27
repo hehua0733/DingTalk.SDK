@@ -31,7 +31,7 @@ namespace DingTalk.SDK.DD.Tests
             {
                 Console.WriteLine(e.Result.errmsg);
                 Console.WriteLine(e.Result.errcode);
-               // Assert.Fail();
+                // Assert.Fail();
             }
 
 
@@ -46,15 +46,12 @@ namespace DingTalk.SDK.DD.Tests
                 //Assert.IsNotNull(msg);
                 //Console.WriteLine(msg.receiver);
 
-          
-
-
                 var msg2 = Message.send("manager4559", "", "5944441", new
                     DDOAMessage()
                 {
-                    message_url = "http://www.baidu.com",
                     oa = new DDOAMessage.OA
                     {
+                        message_url = "http://www.baidu.com",
                         head = new DDOAMessage.OA.Head
                         {
                             bgcolor = "55FF00FF",
@@ -68,7 +65,6 @@ namespace DingTalk.SDK.DD.Tests
                         }
                     }
                 });
-
 
                 Assert.IsNotNull(msg2);
                 Console.WriteLine(msg2.receiver);

@@ -85,12 +85,11 @@ namespace DingTalk.SDK.Entities
 
         }
 
-        public string message_url { get; set; }
-
         public OA oa { get; set; }
         public class OA
         {
 
+            public string message_url { get; set; }
             public Head head { get; set; }
             public Body body { get; set; }
             public class Head
@@ -112,8 +111,8 @@ namespace DingTalk.SDK.Entities
                 public FormKeyValue[] form { get; set; }
                 public Rich rich { get; set; }
 
-                public class FormKeyValue 
-                { 
+                public class FormKeyValue
+                {
                     public string key { get; set; }
                     public string value { get; set; }
                 }
