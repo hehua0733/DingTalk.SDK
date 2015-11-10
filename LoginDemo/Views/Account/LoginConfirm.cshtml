@@ -1,0 +1,36 @@
+﻿@model DingTalk.SDK.Entities.UserInfo
+
+@{
+    Layout = null;
+    //手机页
+}
+
+<!DOCTYPE html>
+
+<html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginConfirm</title>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <div>
+        @ViewBag.JSON
+        <img src="@Model.avatar" />
+        <div>@Model.name </div>
+        <button id="confirm">确认登录</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".confirm").click(function () {
+
+
+            })
+
+
+        })
+
+    </script>
+
+</body>
+</html>

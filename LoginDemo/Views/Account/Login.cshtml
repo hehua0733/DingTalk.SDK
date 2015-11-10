@@ -1,0 +1,28 @@
+﻿@model DingTalk.SDK.Entities.UserInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <div>
+        @if (Model != null)//只需要点确认就能登录
+        {
+            <img src="@Model.avatar" />
+            <div>@Model.name </div>
+            <button>立即登录</button>
+        }
+        else//获取一个带登录功能的二维码
+        {
+            <img src='@Url.Action("Qr","Account")' />
+            <div>请打开钉钉，扫码登录</div>
+        }
+    </div>
+</body>
+</html>

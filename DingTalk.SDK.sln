@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingTalk.SDK", "DingTalk.SD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingTalk.SDKTests", "DingTalk.SDKTests\DingTalk.SDKTests.csproj", "{B18F73AC-5754-433F-9D24-62F486256EDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo", "LoginDemo\LoginDemo.csproj", "{72BB4C8E-E5AB-445F-8A5C-BBAFAB5170E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo.Tests", "LoginDemo.Tests\LoginDemo.Tests.csproj", "{CFE35137-F121-49FC-A761-ED7DE026FBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B18F73AC-5754-433F-9D24-62F486256EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B18F73AC-5754-433F-9D24-62F486256EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B18F73AC-5754-433F-9D24-62F486256EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BB4C8E-E5AB-445F-8A5C-BBAFAB5170E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BB4C8E-E5AB-445F-8A5C-BBAFAB5170E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BB4C8E-E5AB-445F-8A5C-BBAFAB5170E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BB4C8E-E5AB-445F-8A5C-BBAFAB5170E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFE35137-F121-49FC-A761-ED7DE026FBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE35137-F121-49FC-A761-ED7DE026FBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE35137-F121-49FC-A761-ED7DE026FBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE35137-F121-49FC-A761-ED7DE026FBEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
