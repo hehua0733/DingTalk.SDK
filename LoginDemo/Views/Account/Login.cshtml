@@ -20,9 +20,30 @@
         }
         else//获取一个带登录功能的二维码
         {
-            <img src='@Url.Action("Qr","Account")' />
+            <img id="qr" src='@Url.Action("Qr","Account", new { id = ViewBag.Qr })' />
             <div>请打开钉钉，扫码登录</div>
+
+            <script>
+                $(document).ready(function () {
+                    function poll(id) {
+                        $.getJSON("/account/Polling?id=" + id, function (data) {
+                            console.log(data);
+                            if (data.status == 408) {
+                                poll(id);
+                            } else if (data.status == 409) {
+                                poll(data.id);
+                                $("#qr").attr("src", "/account/qr/" + data.qr);
+                            } else if (data.status == 400) {
+                                $("#qr").hide();
+                            }
+                        })
+                    }
+                    poll("@ViewBag.Id");
+                })
+            </script>
         }
+
+
     </div>
 </body>
 </html>
