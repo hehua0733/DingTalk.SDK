@@ -8,25 +8,44 @@
 <!DOCTYPE html>
 
 <html>
-<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoginConfirm</title>
+    <script src="~/Scripts/debug.js"></script>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/json2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
 </head>
 <body>
     <div>
-        @ViewBag.JSON
+        <ul id="discussion"></ul>
+
         <img src="@Model.avatar" />
         <div>@Model.name </div>
         <button id="confirm">确认登录</button>
     </div>
 
     <script>
-        $(document).ready(function () {
-            $(".confirm").click(function () {
+        $(function () {
+            //手机端
+            var chat = $.connection.QrHub;
+            var pcConnectionId = "@ViewBag.ConnetionId"
+            //断开与服务端的链接
+            chat.client.Disconnect = function () {
+                $.connection.hub.stop();
+                window.close();
+            };
 
-
-            })
-        })
+            //打开页面时，告诉服务端，我已经扫描了
+            $.connection.hub.start().done(function () {
+                chat.server.scaned(pcConnectionId, $.connection.hub.id, "@Model.avatar", "@Model.name");
+                //确定登录时，通知服务端
+                $("#confirm").click(function () {
+                    chat.server.confirm(pcConnectionId, $.connection.hub.id, "@Model.userid");
+                })
+            });
+        });
     </script>
 
 </body>

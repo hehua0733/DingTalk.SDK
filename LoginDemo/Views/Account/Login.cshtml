@@ -8,7 +8,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
-    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/json2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
 </head>
 <body>
     <div>
@@ -20,29 +23,59 @@
         }
         else//获取一个带登录功能的二维码
         {
-            <img id="qr" src='@Url.Action("Qr","Account", new { id = ViewBag.Qr })' />
+            <img id="qr" />
             <div>请打开钉钉，扫码登录</div>
 
-            <script>
-                $(document).ready(function () {
-                    function poll(id) {
-                        $.getJSON("/account/Polling?id=" + id, function (data) {
-                            console.log(data);
-                            if (data.status == 408) {
-                                poll(id);
-                            } else if (data.status == 409) {
-                                poll(data.id);
-                                $("#qr").attr("src", "/account/qr/" + data.qr);
-                            } else if (data.status == 400) {
-                                $("#qr").hide();
-                            }
-                        })
-                    }
-                    poll("@ViewBag.Id");
-                })
-            </script>
-        }
 
+            @*<script>
+                    $(document).ready(function () {
+                        function poll(id) {
+                            $.getJSON("/account/Polling?id=" + id, function (data) {
+                                console.log(data);
+                                if (data.status == 408) {
+                                    poll(id);
+                                } else if (data.status == 409) {
+                                    poll(data.id);
+                                    $("#qr").attr("src", "/account/qr/" + data.qr);
+                                } else if (data.status == 400) {
+                                    $("#qr").hide();
+                                }
+                            })
+                        }
+                        poll("@ViewBag.Id");
+                    })
+                </script>*@
+        }
+        @ViewBag.Id
+        <hr />
+        <img id="avatar" />
+        <div id="h">
+
+        </div>
+        <script>
+            $(function () {
+                var chat = $.connection.QrHub;
+                //让手机端确定登录
+                chat.client.LetConfirm = function (avatar, username) {
+                    $("#avatar").attr("src", avatar);
+                    $("#h").html("<b>" + username + "</b><a>请在手机上确认登录</a>")
+                };
+                //PC端登录
+                chat.client.Login = function (userid) {
+                    console.log(userid);
+                    console.log("立即登录：" + userid);
+                    $("#h").html("点击了登录。");
+                };
+                //断开链接
+                chat.client.Disconnect = function () {
+                    $.connection.hub.stop();
+                };
+                //当手机扫描时,切换一个二维码
+                $.connection.hub.start().done(function () {
+                    $("#qr").attr("src", "/account/qr/" + $.connection.hub.id);
+                });
+            });
+        </script>
 
     </div>
 </body>
